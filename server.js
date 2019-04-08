@@ -87,7 +87,7 @@ five.Board().on("ready", function() {
   });
   
   osc.on('/level', message => {
-    led.intensity(message.args[0]*150);
+    led.intensity(message.args[0]*200);
     if(message.args[0]*100 < 1.0){
       led.color(colors[0]);
     } else if( message.args[0]*100 < 10.0 && message.args[0]*100 >= 1.0) {

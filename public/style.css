@@ -16,6 +16,8 @@ h1 {
   color: #373fff;
 }
 
+
+
 .bold {
   font-weight: bold;
 }
@@ -65,8 +67,15 @@ li {
   margin-bottom: 5px;
 }
 
+#decibel {
+  position:absolute;
+  z-index:2;
+}
+
 footer {
   margin-top: 50px;
   padding-top: 25px;
   border-top: 1px solid lightgrey;
 }
+
+
