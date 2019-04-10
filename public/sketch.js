@@ -35,7 +35,6 @@ osc.on('/level', message => {
 
 osc.on('/db', message => {
   let av = 0;
-    dbString = message.args[0].toFixed(2) + ' dB'
     if(averageBuff.length < BUFF_SIZE) {
             averageBuff.push(parseFloat(message.args[0]));      
 
@@ -44,6 +43,8 @@ osc.on('/db', message => {
       averageBuff.push(parseFloat(message.args[0]));      
     }
     av = Math.round(getAverageArray(averageBuff))
+    dbString = av + ' dB'
+
     let k=10;
     Object.keys(audioStatus).forEach(function(key) {
      if(av > key) {
@@ -51,11 +52,12 @@ osc.on('/db', message => {
     }
     });
     status = "You are as loud as a " + audioStatus[k];
+    console.log(status);
 })
 
 
 
-let resolution = 260; // how many points in the circle
+let resolution = 36; // how many points in the circle
 let rad = 150;
 let x = 1;
 let y = 1;
@@ -66,10 +68,11 @@ let t = 0; // time passed
 let tChange = .02; // how quick time flies
 
 let nVal; // noise value
-let nInt = 1; // noise intensity
-let nAmp = 1; // noise amplitude
+let nInt = 190; // noise intensity
+let nAmp = 10; // noise amplitude
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
+  let cnv = createCanvas(window.innerWidth, window.innerHeight);
+  cnv.position(0,0)
   background(0);
   stroke(255, 15);
   noFill();
@@ -92,8 +95,8 @@ function draw() {
   document.getElementById('decibel').textContent = dbString;
     document.getElementById('status').textContent = status;
 
-  nInt = map(val, 0, 10.0, 0.1, 40.0);
-  nAmp = map(val, 0, 10, 0.0, 100.0);
+  nInt = map(val, 0, 10.0, 2.0, 100.0);
+  nAmp = map(val, 0, 10, 0.5, 400.0);
   cG = map(val, 0, 1.0, 255, 0);
  // stroke(255, cG, 0, val*15);
   //console.log(cG);
