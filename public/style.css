@@ -70,19 +70,21 @@ li {
 #decibel {
   position:absolute;
   z-index:2;
-  top: 48%;
+  bottom: 20px;
   left:50%;
-  transform: translate(-50%, -60%);
-  font-family: 'Courier New', Courier, monospace;
+  transform: translate(-50%, 0%);
+  font-family: sans-serif;
   color:white;
+  font-weight: bolder;
 
 }
 
 #status {
   position:absolute;
   z-index:2;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: sans-serif;
   color:white;
+
 }
 
 footer {

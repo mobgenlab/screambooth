@@ -93,7 +93,8 @@ function setup() {
 }
 
 function draw() {
-  console.log(val);
+  document.getElementById('decibel').textContent = dbString;
+  document.getElementById('status').textContent = status;
   nInt = map(val, 0, 10.0, 2.0, 100.0);
   nAmp = map(val, 0, 10, 0.5, 400.0);
   cG = map(val, 0, 1.0, 255, 0);
